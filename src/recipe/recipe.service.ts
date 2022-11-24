@@ -14,4 +14,20 @@ export class RecipeService {
         const recipes = this.recipeRepository.find();
         return recipes;
     }
+
+    findOne(id: number) {
+        return this.recipeRepository.findOneBy({id});
+    }
+
+    delete(id: number) {
+        return this.recipeRepository.softDelete(id);
+    }
+
+    update(id: number, recipe) {
+        return this.recipeRepository.update(id, recipe);
+    }
+
+    create(recipe) {
+        return this.recipeRepository.save(recipe);
+    }
 }
